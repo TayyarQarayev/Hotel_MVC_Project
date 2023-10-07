@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.EntityFrameworkCore.Context.Config.CustomerConfig;
 
-internal class CusomersConfig : IEntityTypeConfiguration<Customers>
+internal class CustomersConfig : IEntityTypeConfiguration<Customers>
 {
     public void Configure(EntityTypeBuilder<Customers> builder)
     {
