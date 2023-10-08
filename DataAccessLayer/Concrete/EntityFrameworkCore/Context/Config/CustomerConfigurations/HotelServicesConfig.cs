@@ -15,9 +15,5 @@ internal class HotelServicesConfig : IEntityTypeConfiguration<HotelServices>
     {
         builder.HasKey(x => x.ID);
         builder.Property(x => x.HotelServicesName).IsRequired();
-
-        builder.HasMany(x => x.Service)
-               .WithOne(x => x.HotelServices)
-               .HasForeignKey(x => x.HotelServiceID);
     }
 }

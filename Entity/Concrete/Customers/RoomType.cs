@@ -11,10 +11,10 @@ public class RoomType : IBaseTable
 {
     public RoomType()
     {
-        Room = new HashSet<Rooms>();
+        Rooms = new HashSet<Rooms>();
     }
     public int ID { get; set; }
     public string TypeName { get; set; } = string.Empty;
-    public ICollection<Rooms> Room { get; set; }
+    public ICollection<Rooms> Rooms { get; set; }
 
 }

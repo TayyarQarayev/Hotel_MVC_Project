@@ -18,11 +18,16 @@ internal class ServicesConfig : IEntityTypeConfiguration<Services>
         builder.Property(x => x.HotelServiceID).IsRequired();
 
         builder.HasOne(x => x.RoomServices)
-               .WithMany(x => x.Service)
+               .WithMany(x => x.Services)
                .HasForeignKey(x => x.RoomServiceID);
 
+
         builder.HasOne(x => x.HotelServices)
-               .WithMany(x => x.Service)
+               .WithMany(x => x.Services)
                .HasForeignKey(x => x.HotelServiceID);
+
+        builder.HasMany(x => x.Room_Service)
+               .WithOne(x => x.service)
+               .HasForeignKey(x => x.serviceID);
     }
 }

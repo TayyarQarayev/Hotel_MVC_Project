@@ -9,11 +9,7 @@ namespace Entity.Concrete.Customers;
 
 public class RoomServices : IBaseTable
 {
-    public RoomServices()
-    {
-        Service = new HashSet<Services>();
-    }
     public int ID { get; set; }
     public string RoomServicesName { get; set; } = string.Empty;
-    public ICollection<Services> Service { get; set; }
+    public Services Services { get; set; }
 }

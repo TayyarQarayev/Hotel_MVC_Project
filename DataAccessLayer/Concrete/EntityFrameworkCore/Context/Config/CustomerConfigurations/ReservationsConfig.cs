@@ -17,9 +17,5 @@ internal class ReservationsConfig : IEntityTypeConfiguration<Reservations>
         builder.Property(x => x.ReservationNumber).IsRequired();
         builder.Property(x => x.ReservationDate).IsRequired();
         builder.Property(x => x.CustomerID).IsRequired();
-
-        builder.HasMany(x => x.Room)
-               .WithOne(x => x.Reservations)
-               .HasForeignKey(x => x.ReservationID);
     }
 }

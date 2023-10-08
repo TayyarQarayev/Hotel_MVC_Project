@@ -11,12 +11,12 @@ public class Customers : IBaseTable
 {
     public Customers()
     {
-        Reservation = new HashSet<Reservations>();
+        Reservations = new HashSet<Reservations>();
     }
     public int ID { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string DateOfBirth { get; set; } = string.Empty;
     public string ContactNO { get; set; } = string.Empty;
-    public ICollection<Reservations> Reservation { get; set; }
+    public ICollection<Reservations> Reservations { get; set; }
 }

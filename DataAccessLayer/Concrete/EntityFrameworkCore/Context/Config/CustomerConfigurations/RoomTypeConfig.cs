@@ -15,9 +15,5 @@ internal class RoomTypeConfig : IEntityTypeConfiguration<RoomType>
     {
         builder.HasKey(x => x.ID);
         builder.Property(x => x.TypeName);
-
-        builder.HasMany(x => x.Room)
-               .WithOne(x => x.RoomType)
-               .HasForeignKey(x => x.RoomTypeID);
     }
 }

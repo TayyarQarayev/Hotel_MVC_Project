@@ -12,13 +12,15 @@ public class Services : IBaseTable
 {
     public Services()
     {
-        Room_Service = new HashSet<Rooms_Services>();
+        RoomServices = new HashSet<RoomServices>();
+        HotelServices = new HashSet<HotelServices>();
     }
     public int ID { get; set; }
     public int RoomServiceID { get; set; }
     public int HotelServiceID { get; set; }
-    public HotelServices HotelServices { get; set; }
-    public RoomServices RoomServices { get; set; }
-    public ICollection<Rooms_Services> Room_Service { get; set; }
+    public Rooms_Services Rooms_Services { get; set; }
+
+    public ICollection<RoomServices> RoomServices { get; set; }
+    public ICollection<HotelServices> HotelServices { get; set; }
 
 }

@@ -11,12 +11,12 @@ public class Reservations : IBaseTable
 {
     public Reservations()
     {
-        Room = new HashSet<Rooms>();
+        Rooms = new HashSet<Rooms>();
     }
     public int ID { get; set; }
     public int ReservationNumber { get; set; }
     public DateTime ReservationDate { get; set; }
     public int CustomerID { get; set; }
     public Customers Customers { get; set; }
-    public ICollection<Rooms> Room { get; set; }
+    public ICollection<Rooms> Rooms { get; set; }
 }

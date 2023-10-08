@@ -20,11 +20,15 @@ internal class RoomsConfig : IEntityTypeConfiguration<Rooms>
         builder.Property(x => x.ReservationID).IsRequired();
 
         builder.HasOne(x => x.RoomType)
-               .WithMany(x => x.Room)
+               .WithMany(x => x.Rooms)
                .HasForeignKey(x => x.RoomTypeID);
 
         builder.HasOne(x => x.Reservations)
-               .WithMany(x => x.Room)
+               .WithMany(x => x.Rooms)
                .HasForeignKey(x => x.ReservationID);
+
+        builder.HasMany(x => x.Rooms_Services)
+               .WithOne(x => x.Rooms)
+               .HasForeignKey(x => x.RoomsID);
     }
 }

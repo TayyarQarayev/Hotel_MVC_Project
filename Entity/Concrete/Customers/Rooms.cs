@@ -9,6 +9,10 @@ namespace Entity.Concrete.Customers;
 
 public class Rooms : IBaseTable
 {
+    public Rooms()
+    {
+        Rooms_Services = new HashSet<Rooms_Services>();
+    }
     public int ID { get; set; }
     public int RoomNumber { get; set; }
     public int RoomPrice { get; set; }
@@ -19,4 +23,5 @@ public class Rooms : IBaseTable
     public int ReservationID { get; set; }
     public RoomType RoomType { get; set; }
     public Reservations Reservations { get; set; }
+    public ICollection<Rooms_Services> Rooms_Services { get; set; }
 }

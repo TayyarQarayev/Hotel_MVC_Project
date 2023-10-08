@@ -15,9 +15,5 @@ internal class RoomServicesConfig : IEntityTypeConfiguration<RoomServices>
     {
         builder.HasKey(x => x.ID);
         builder.Property(x => x.RoomServicesName).IsRequired();
-
-        builder.HasMany(x => x.Service)
-               .WithOne(x => x.RoomServices)
-               .HasForeignKey(x => x.RoomServiceID);
     }
 }

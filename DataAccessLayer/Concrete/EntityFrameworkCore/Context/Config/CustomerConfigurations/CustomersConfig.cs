@@ -18,7 +18,7 @@ internal class CustomersConfig : IEntityTypeConfiguration<Customers>
         builder.Property(x => x.LastName).IsRequired();
         builder.Property(x => x.ContactNO).IsRequired();
 
-        builder.HasMany(x => x.Reservation)
+        builder.HasMany(x => x.Reservations)
                .WithOne(x => x.Customers)
                .HasForeignKey(x => x.CustomerID);
     }
