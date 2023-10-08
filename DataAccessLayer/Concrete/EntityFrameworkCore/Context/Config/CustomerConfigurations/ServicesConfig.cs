@@ -21,13 +21,12 @@ internal class ServicesConfig : IEntityTypeConfiguration<Services>
                .WithMany(x => x.Services)
                .HasForeignKey(x => x.RoomServiceID);
 
-
         builder.HasOne(x => x.HotelServices)
                .WithMany(x => x.Services)
                .HasForeignKey(x => x.HotelServiceID);
 
-        builder.HasMany(x => x.Room_Service)
-               .WithOne(x => x.service)
-               .HasForeignKey(x => x.serviceID);
+        builder.HasMany(x => x.Rooms_Services)
+               .WithOne(x => x.Services)
+               .HasForeignKey(x => x.ServiceID);
     }
 }

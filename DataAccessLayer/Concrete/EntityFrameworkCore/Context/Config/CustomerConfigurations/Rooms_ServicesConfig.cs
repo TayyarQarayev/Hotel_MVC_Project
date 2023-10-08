@@ -13,6 +13,6 @@ internal class Rooms_ServicesConfig : IEntityTypeConfiguration<Rooms_Services>
 {
     public void Configure(EntityTypeBuilder<Rooms_Services> builder)
     {
-        builder.HasKey(x => new { x.ServiceID, x.RoomsID });
+        builder.HasKey(x => new { x.ServiceID, x.RoomID });
     }
 }
