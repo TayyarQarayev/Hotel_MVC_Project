@@ -20,7 +20,7 @@ internal class Rooms_ServicesConfig : IEntityTypeConfiguration<Rooms_Services>
                .HasForeignKey(x => x.ServiceID);
 
 
-        builder.HasOne(x => x.HotelServices)
+        builder.HasOne(x => x.RoomsServices)
                .WithMany()
                .HasForeignKey(x => x.RoomsID);
     }
