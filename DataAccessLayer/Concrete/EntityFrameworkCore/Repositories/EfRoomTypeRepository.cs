@@ -1,4 +1,4 @@
-﻿using using DataAccessLayer.Abstrct.CustomersInterfaces;
+﻿using DataAccessLayer.Abstrct.CustomersInterfaces;
 using DataAccessLayer.Concrete.EntityFrameworkCore.Context;
 using Entity.Concrete.Customers;
 using System;

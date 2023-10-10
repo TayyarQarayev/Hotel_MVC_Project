@@ -12,7 +12,7 @@ public class HotelEcommerceContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=.;DataBase=HotelECommerce;Trusted_Connection=true;");
+        optionsBuilder.UseSqlServer(@"Server=.;Database=HotelECommerce;Trusted_Connection=true;");
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
