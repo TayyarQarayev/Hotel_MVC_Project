@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(HotelEcommerceContext))]
-    [Migration("20231010062508_InitialCreate_First")]
+    [Migration("20231010194957_InitialCreate_First")]
     partial class InitialCreate_First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
