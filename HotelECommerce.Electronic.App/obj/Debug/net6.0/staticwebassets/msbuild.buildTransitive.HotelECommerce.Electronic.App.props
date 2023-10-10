@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\HotelECommerce.Electronic.App.props" />
+</Project>
