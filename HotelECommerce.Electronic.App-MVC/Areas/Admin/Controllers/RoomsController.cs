@@ -9,5 +9,10 @@ namespace HotelECommerce.Electronic.App_MVC.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult RoomType()
+        {
+            return View();
+        }
     }
 }
