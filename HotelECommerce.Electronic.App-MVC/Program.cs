@@ -1,7 +1,18 @@
+using BusinessLogicLayer.Abstrct;
+using BusinessLogicLayer.Concrete;
+using DataAccessLayer.Abstrct.CustomersInterfaces;
+using DataAccessLayer.Concrete.EntityFrameworkCore.Context;
+using DataAccessLayer.Concrete.EntityFrameworkCore.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
+builder.Services.AddScoped<IRoomTypeRepository, EfRoomTypeRepository>();
+
+builder.Services.AddDbContext<HotelEcommerceContext>();
 
 var app = builder.Build();
 

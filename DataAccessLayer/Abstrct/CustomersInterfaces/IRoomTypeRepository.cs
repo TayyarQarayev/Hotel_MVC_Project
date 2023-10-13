@@ -9,4 +9,5 @@ namespace DataAccessLayer.Abstrct.CustomersInterfaces;
 
 public interface IRoomTypeRepository : IGenericRepository<RoomType>
 {
+
 }

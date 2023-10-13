@@ -10,4 +10,5 @@ namespace BusinessLogicLayer.Abstrct;
 public interface IRoomTypeService
 {
     Task<IEnumerable<RoomTypeModel>> GetAll();
+    Task<bool> AddRoomType(RoomTypeModel roomTypeModel);
 }
