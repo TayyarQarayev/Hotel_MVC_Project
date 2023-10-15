@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ReservationsModel>
+@{
+    ViewData["Title"] = "Reservations";
+}
+
+<div class="card">
+    <div class="row card-header">
+        <h5>Reservation</h5>
+    </div>
+
+    <div class="row">
+        <div class="col-3 p-4">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationsAddedModel">Add new Reservations</button>
+        </div>
+        <div class="modal fade" id="reservationsAddedModel" tabindex="-1" aria-labelledby="reservationsAddedModel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Reservation</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="AddReservations" method="post">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="TypeName" class="form-label">Reservation</label>
+                                <input type="text" class="form-control" id="" name="" placeholder="">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body px-4">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Reservation Number</th>
+                        <th scope="col">Reservation Date</th>
+                        <th scope="col">Customers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Reservations in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Reservations.ID
+                            </td>
+                            <td>
+                                @Reservations.ReservationNumber
+                            </td>
+                            <td>
+                                @Reservations.ReservationDate
+                            </td>
+                            <td>
+                                @Reservations.CustomerID
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
