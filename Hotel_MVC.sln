@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{A361E00A-CF4C-4718-AFE1-5CCA1AAE34B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelECommerce.Electronic.App-MVC", "HotelECommerce.Electronic.App-MVC\HotelECommerce.Electronic.App-MVC.csproj", "{A27D53A5-1239-453D-9AE6-A197814E442A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelECommerce.Electronic.App-MVC", "HotelECommerce.Electronic.App-MVC\HotelECommerce.Electronic.App-MVC.csproj", "{A27D53A5-1239-453D-9AE6-A197814E442A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

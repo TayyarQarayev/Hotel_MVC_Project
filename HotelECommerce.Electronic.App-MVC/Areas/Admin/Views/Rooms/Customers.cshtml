@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CustomersModel>
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="card">
+    <div class="row card-header">
+        <h5>Customers</h5>
+    </div>
+
+    <div class="row">
+        <div class="col-3 p-4">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customersAddedModel">Add new Customers</button>
+        </div>
+        <div class="modal fade" id="customersAddedModel" tabindex="-1" aria-labelledby="customersAddedModel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Customers</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="AddCustomers" method="post">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="TypeName" class="form-label">Customers</label>
+                                <input type="text" class="form-control" id="" name="" placeholder="">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body px-4">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">ContactNO</th>
+                        <th scope="col">Date Of Birth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Customers in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Customers.ID
+                            </td>
+                            <td>
+                                @Customers.FirstName
+                            </td>
+                            <td>
+                                @Customers.LastName
+                            </td>
+                            <td>
+                                @Customers.ContactNO
+                            </td>
+                            <td>
+                                @Customers.DateOfBirth
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

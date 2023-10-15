@@ -35,29 +35,19 @@
                             </ul>
                         </li
                         <li>
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <a asp-controller="Rooms" asp-action="Reservations" href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                 <span class="ms-1 d-none d-sm-inline">--Reservation</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Reservation Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Reservation Add</span></a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li>
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a asp-controller="Rooms" asp-action="Customers" href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <span class="ms-1 d-none d-sm-inline">--Customers</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Customers Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Customers Add</span></a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li>
@@ -65,64 +55,23 @@
                                 <span class="ms-1 d-none d-sm-inline">--RoomType</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">RoomType Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">RoomType Add</span></a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li>
-                            <a href="#submenu5" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <span class="ms-1 d-none d-sm-inline">--Services</span>
-                            </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu5" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Services Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Services Add</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#submenu6" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a asp-controller="Rooms" asp-action="RoomServices" href="#submenu6" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <span class="ms-1 d-none d-sm-inline">--RoomServices</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu6" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">RoomServices Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">RoomServices Add</span></a>
-                                </li>
+                               
                             </ul>
                         </li>
                         <li>
-                            <a href="#submenu7" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a asp-controller="Rooms" asp-action="HotelServices" href="#submenu7" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <span class="ms-1 d-none d-sm-inline">--HotelServices</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu7" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">HotelServices Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">HotelServices Add</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#submenu8" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <span class="ms-1 d-none d-sm-inline">--Rooms_Services</span>
-                            </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu8" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Rooms_Services Table</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Rooms_Services Add</span></a>
-                                </li>
+
                             </ul>
                         </li>
                     </ul>
@@ -146,14 +95,11 @@
             </div>
         </div>
     </div>
-
-    <div>
-        @RenderBody()
-    </div>
-
+        <div>
+            @RenderBody()
+        </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
 </body>
 </html>
