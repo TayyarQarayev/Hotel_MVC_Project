@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HotelServicesModel>
+@{
+    ViewData["Title"] = "HotelServices";
+}
+
+<div class="card">
+    <div class="row card-header">
+        <h5>Hotel Services</h5>
+    </div>
+
+    <div class="row">
+        <div class="col-3 p-4">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#hotelServicesAddedModel">Add new Hotel Service</button>
+        </div>
+        <div class="modal fade" id="hotelServicesAddedModel" tabindex="-1" aria-labelledby="hotelServicesAddedModel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hotel Service</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="AddHotelServices" method="post">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="HotelServicesName" class="form-label">Hotel Service Name</label>
+                                <input type="text" class="form-control" id="HotelServicesName" name="HotelServicesName" placeholder="">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body px-4">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Hotel Service Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var HotelServices in Model)
+                    {
+                        <tr>
+                            <td>
+                                @HotelServices.ID
+                            </td>
+                            <td>
+                                @HotelServices.HotelServicesName
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

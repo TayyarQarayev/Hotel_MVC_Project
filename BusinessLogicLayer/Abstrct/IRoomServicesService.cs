@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicLayer.Models.RoomServicesModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,4 +9,6 @@ namespace BusinessLogicLayer.Abstrct;
 
 public interface IRoomServicesService
 {
+    Task<IEnumerable<RoomServicesModel>> GetAll();
+    Task<bool> AddRoomServices(RoomServicesModel roomServicesModel);
 }

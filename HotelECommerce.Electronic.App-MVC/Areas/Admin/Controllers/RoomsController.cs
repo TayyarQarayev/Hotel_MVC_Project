@@ -1,7 +1,10 @@
 ﻿using BusinessLogicLayer.Abstrct;
 using BusinessLogicLayer.Models.CustomersModels;
+using BusinessLogicLayer.Models.HotelServicesModels;
 using BusinessLogicLayer.Models.ReservationsModels;
+using BusinessLogicLayer.Models.RoomServicesModels;
 using BusinessLogicLayer.Models.RoomTypeModels;
+using Entity.Concrete.Customers;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -25,15 +28,15 @@ public class RoomsController : Controller
     {
         _CustomersService = customersService;
     }
-    private readonly IRoomServicesService _RoomServices;
+    private readonly IRoomServicesService _RoomServicesServices;
     public RoomsController(IRoomServicesService roomServicesService)
     {
-        _RoomServices = roomServicesService;
+        _RoomServicesServices = roomServicesService;
     }
-    private readonly IHotelServicesService _HotelServices;
+    private readonly IHotelServicesService _HotelServicesServices;
     public RoomsController(IHotelServicesService hotelServicesService)
     {
-        _HotelServices = hotelServicesService;
+        _HotelServicesServices = hotelServicesService;
     }
     public IActionResult Index()
     {
@@ -79,6 +82,32 @@ public class RoomsController : Controller
     {
         var result = _CustomersService.AddCustomers(customersModel);
         return RedirectToAction(nameof(Customers));
+    }
+    // End
+    // RoomServices
+    public async Task<IActionResult> RoomServices()
+    {
+        var roomServices = await _RoomServicesServices.GetAll();
+        return View(roomServices);
+    }
+    [HttpPost]
+    public async Task<IActionResult> AddRoomServices(RoomServicesModel roomServicesModel)
+    {
+        var result = _RoomServicesServices.AddRoomServices(roomServicesModel);
+        return RedirectToAction(nameof(RoomServices));
+    }
+    // End
+    // HotelServices views
+    public async Task<IActionResult> HotelServices() 
+    {
+        var hotelServices = await _HotelServicesServices.GetAll();
+        return View(hotelServices);
+    }
+    [HttpPost]
+    public async Task<IActionResult> AddHotelServices(HotelServicesModel hotelServicesModel) 
+    {
+        var result = _HotelServicesServices.AddHotelServices(hotelServicesModel);
+        return RedirectToAction(nameof(HotelServices));
     }
     // End
 }

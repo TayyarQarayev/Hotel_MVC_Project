@@ -20,12 +20,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcQ3VzdG9tZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/HotelServices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcSG90ZWxTZXJ2aWNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/Reservations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcUmVzZXJ2YXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/RoomServices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcUm9vbVNlcnZpY2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/RoomType.cshtml]
