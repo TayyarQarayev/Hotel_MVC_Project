@@ -14,29 +14,21 @@ namespace HotelECommerce.Electronic.App_MVC.Areas.Admin.Controllers;
 public class RoomsController : Controller
 {
     private readonly IRoomTypeService _RoomTypeService;
-    public RoomsController(IRoomTypeService roomTypeService)
+    private readonly IReservationService _ReservationsServices;
+    private readonly ICustomersService _CustomersService;
+    private readonly IRoomServicesService _RoomServicesServices;
+    private readonly IHotelServicesService _HotelServicesServices;
+    public RoomsController(IRoomTypeService roomTypeService,
+                           IReservationService reservationService,
+                           ICustomersService customersService,
+                           IRoomServicesService roomServicesServices,
+                           IHotelServicesService hotelServicesServices)
     {
         _RoomTypeService = roomTypeService;
-    }
-    private readonly IReservationService _ReservationsServices;
-    public RoomsController(IReservationService reservationService)
-    {
         _ReservationsServices = reservationService;
-    }
-    private readonly ICustomersService _CustomersService;
-    public RoomsController(ICustomersService customersService)
-    {
         _CustomersService = customersService;
-    }
-    private readonly IRoomServicesService _RoomServicesServices;
-    public RoomsController(IRoomServicesService roomServicesService)
-    {
-        _RoomServicesServices = roomServicesService;
-    }
-    private readonly IHotelServicesService _HotelServicesServices;
-    public RoomsController(IHotelServicesService hotelServicesService)
-    {
-        _HotelServicesServices = hotelServicesService;
+        _RoomServicesServices = roomServicesServices;
+        _HotelServicesServices = hotelServicesServices;
     }
     public IActionResult Index()
     {
@@ -45,8 +37,8 @@ public class RoomsController : Controller
     // RoomType views //
     public async Task<IActionResult> RoomType()
     {
-        var RoomTypes = await _RoomTypeService.GetAll();
-        return View(RoomTypes);
+        var roomTypes = await _RoomTypeService.GetAll();
+        return View(roomTypes);
     }
 
     [HttpPost]
@@ -59,7 +51,7 @@ public class RoomsController : Controller
     // Reservation views //
     public async Task<IActionResult> Reservations()
     {
-        var reservations = await _RoomTypeService.GetAll();
+        var reservations = await _ReservationsServices.GetAll();
         return View(reservations);
     }
 

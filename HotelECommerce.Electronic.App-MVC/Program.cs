@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<HotelEcommerceContext>();
-var app = builder.Build();
 // RoomType
 builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
 builder.Services.AddScoped<IRoomTypeRepository, EfRoomTypeRepository>();
@@ -25,6 +24,7 @@ builder.Services.AddScoped<IRoomServicesService, RoomServicesService>();
 //HotelServices
 builder.Services.AddScoped<IHotelServicesRepository, EfHotelServicesRepository>();
 builder.Services.AddScoped<IHotelServicesService, HotelServicesService>();
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
