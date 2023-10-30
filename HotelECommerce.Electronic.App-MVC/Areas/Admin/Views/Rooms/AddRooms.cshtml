@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "AddRooms";
+}
+
+<div class="accordion accordion-flush bg-primary shadow" style="border-radius:10px;" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" style="border-radius:10px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <h3>Add Room</h3>
+            </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <div class="card shadow m-auto" style="width: 90%;">
+                    <div class="card-header text-white" style="background:#333">
+                        <h1>Add Room</h1>
+                    </div>
+                    <div class="card-body bg-body-secondary">
+                        <div class="row">
+                            <form asp-action="AddRooms" class="w-100" style="display:inline;">
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="mb-3 col-4">
+                                            <label for="RoomNumber" class="form-label fw-bold">Room Number</label>
+                                            <input type="text" class="form-control" id="RoomNumber" name="RoomNumber" placeholder="">
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="RoomPrice" class="form-label fw-bold">Price</label>
+                                            <input type="text" class="form-control" id="RoomPrice" name="RoomPrice" placeholder="">
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="RoomSize" class="form-label fw-bold">Size</label>
+                                            <input type="text" class="form-control" id="RoomSize" name="RoomSize" placeholder="">
+                                        </div>
+                                        <div class="mb-3 col-6">
+                                            <label for="GuestsCount" class="form-label fw-bold">Guests</label>
+                                            <input type="text" class="form-control" id="GuestsCount" name="GuestsCount" placeholder="">
+                                        </div>
+                                        <div class="mb-3 col-6">
+                                            <label for="ChilderenCount" class="form-label fw-bold">Children</label>
+                                            <input type="text" class="form-control" id="ChilderenCount" name="ChilderenCount" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="mb-3 col-3">
+                                            <label for="" class="form-label fw-bold">Room Type</label>
+                                            <select class="form-select" aria-label="Default select example" id="roomTypeSelect"></select>
+                                        </div>
+                                        <div class="mb-3 col-3">
+                                            <label for="" class="form-label fw-bold">Reservation Number</label>
+                                            <select class="form-select" aria-label="Default select example" id="reservationsSelect"></select>
+                                        </div>
+                                        <div class="mb-3 col-3">
+                                            <label for="" class="form-label fw-bold">Room Service</label>
+                                            <select class="form-select" aria-label="Default select example" id="roomServicesSelect"></select>
+                                        </div>
+                                        <div class="mb-3 col-3">
+                                            <label for="" class="form-label fw-bold">Hotel Service</label>
+                                            <select class="form-select" aria-label="Default select example" id="hotelServicesSelect"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3" style="border:3px dashed #000; padding:10px 6px; border-radius:6px;">
+                                    <form action="/upload" method="post" enctype="multipart/form-data">
+                                        <label class="h5" for="fileInput">Select image:</label>
+                                        <input class="btn btn-info" type="file" id="fileInput" name="fileInput">
+                                    </form>
+                                </div>
+                                <div class="">
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary w-100 p-2" onclick="addRooms()" style="font-weight: 600;">Add Room</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+          </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        function fillSelectBox(selectBox, textProp, url) {
+            return $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "json"
+            }).then(function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    selectBox.append($('<option>', {
+                        value: data[i].ID,
+                        text: data[i][textProp]
+                    }));
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            fillSelectBox($("#roomTypeSelect"), "TypeName", "/Admin/Rooms/GetRoomTypeList").then(function () {
+                return fillSelectBox($("#roomServicesSelect"), "RoomServicesName", "/Admin/Rooms/GetRoomServicesList");
+            }).then(function () {
+                return fillSelectBox($("#hotelServicesSelect"), "HotelServicesName", "/Admin/Rooms/GetHotelServicesList");
+            }).then(function () {
+                return fillSelectBox($("#reservationsSelect"), "ReservationNumber", "/Admin/Rooms/GetReservationsList");
+            }).catch(function (error) {
+                console.error("Bir hata oluştu: ", error);
+            });
+        });
+
+        function addRooms() {
+
+            // deyme
+            //let files = $("#image").get(0).files;
+            //let formData = new FormData();
+            //for(i=0; i<files.length; i++;){
+            //    formData.append("image",files[i]);
+            //}
+            //
+            // deyme
+            //$.ajax({
+            //    async:true,
+            //    type: "POST",
+            //    url: "/Admin/Rooms/UploadImage",
+            //    data: formData,
+            //    dataType:"JSON",
+            //    processData:false,
+            //    contentType:false,
+            //    success: function (imageResponse) {
+            //        console.log(imageResponse);
+            //    }
+            //}),
+            //
+
+            let roomsData = {
+                    RoomNumber: parseInt($("#RoomNumber").val()),
+                    RoomPrice: parseInt($("#RoomPrice").val()),
+                    GuestsCount: parseInt($("#GuestsCount").val()),
+                    ChilderenCount: parseInt($("#ChilderenCount").val()),
+                    RoomSize: parseInt($("#RoomSize").val()),
+                    RoomTypeID: parseInt($("#roomTypeSelect").val()),
+                    RoomType: $("#roomTypeSelect option:selected").text(),
+                    ReservationID: parseInt($("#reservationsSelect").val()),
+                    Reservations: $("#reservationsSelect option:selected").text(),
+                    Rooms_Services: [parseInt($("#roomServicesSelect").val()), parseInt($("#hotelServicesSelect").val())]
+            }
+            console.log(roomsData);
+            console.log(JSON.stringify(roomsData),"Json");
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/Rooms/addRooms",
+                contentType:'application/json',
+                data: JSON.stringify(roomsData),
+                success: function(response){
+                    console.log(response.message);
+                }
+            })
+        };
+
+        const numberFormatter = e => e.target.value = e.target.value.replace(/\D/g, '');
+        document.getElementById('RoomNumber').addEventListener('input', numberFormatter);
+        document.getElementById('RoomPrice').addEventListener('input', numberFormatter);
+        document.getElementById('GuestsCount').addEventListener('input', numberFormatter);
+        document.getElementById('ChilderenCount').addEventListener('input', numberFormatter);
+        document.getElementById('RoomSize').addEventListener('input', numberFormatter);
+    </script>
+}
+

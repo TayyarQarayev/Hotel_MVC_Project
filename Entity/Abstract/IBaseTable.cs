@@ -8,5 +8,5 @@ namespace Entity.Abstract;
 
 public interface IBaseTable
 {
-
+    public int ID { get; set; }
 }

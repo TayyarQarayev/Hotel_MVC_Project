@@ -1,5 +1,7 @@
-﻿using BusinessLogicLayer.Abstrct;
+﻿using AutoMapper;
+using BusinessLogicLayer.Abstrct;
 using BusinessLogicLayer.Models.RoomServicesModels;
+using BusinessLogicLayer.Models.RoomTypeModels;
 using DataAccessLayer.Abstrct.CustomersInterfaces;
 using Entity.Concrete.Customers;
 using System;
@@ -13,9 +15,11 @@ namespace BusinessLogicLayer.Concrete;
 public class RoomServicesService : IRoomServicesService
 {
     private readonly IRoomServicesRepository _roomServicesRepository;
-    public RoomServicesService(IRoomServicesRepository roomServicesRepository)
+    private readonly IMapper _mapper;
+    public RoomServicesService(IRoomServicesRepository roomServicesRepository, IMapper mapper)
     {
         _roomServicesRepository = roomServicesRepository;
+        _mapper = mapper;
     }
     public async Task<bool> AddRoomServices(RoomServicesModel roomServicesModel)
     {
@@ -23,27 +27,28 @@ public class RoomServicesService : IRoomServicesService
         {
             return false;
         }
-        RoomServices roomServices = new()
-        {
-            ID = roomServicesModel.ID ?? 0,
-            RoomServicesName = roomServicesModel.RoomServicesName
-        };
+        var roomServices = _mapper.Map<RoomServices>(roomServicesModel);
         var added = await _roomServicesRepository.AddAsync(roomServices);
         await _roomServicesRepository.SaveChanges();
         return true;
     }
     public async Task<IEnumerable<RoomServicesModel>> GetAll()
     {
-        List<RoomServicesModel> roomServicesModels = new List<RoomServicesModel>();
-        foreach (var roomServices in await _roomServicesRepository.GetAll())
-        {
-            RoomServicesModel roomServicesModel = new()
-            {
-                ID = roomServices.ID,
-                RoomServicesName= roomServices.RoomServicesName
-            };
-            roomServicesModels.Add(roomServicesModel);
-        }
+        var roomServicesModels = _mapper.Map<IEnumerable<RoomServicesModel>>(await _roomServicesRepository.GetAll());
         return roomServicesModels;
+    }
+
+    public async Task<RoomServicesModel> GetById(int id)
+    {
+        var roomServicesModel = _mapper.Map<RoomServicesModel>(await _roomServicesRepository.GetById(id));
+        return roomServicesModel;
+    }
+    public async Task<bool> Remove(int id)
+    {
+        var deletedRoomServices = await _roomServicesRepository.GetById(id);
+        if (deletedRoomServices is null) {return false;}
+        _roomServicesRepository.Remove(deletedRoomServices);
+        await _roomServicesRepository.SaveChanges();
+        return true;
     }
 }

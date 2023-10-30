@@ -1,13 +1,25 @@
 using BusinessLogicLayer.Abstrct;
 using BusinessLogicLayer.Concrete;
+using BusinessLogicLayer.Mapings.AutoMaper;
+using BusinessLogicLayer.ValidationsRules;
 using DataAccessLayer.Abstrct.CustomersInterfaces;
 using DataAccessLayer.Concrete.EntityFrameworkCore.Context;
 using DataAccessLayer.Concrete.EntityFrameworkCore.Repositories;
+using DataAccessLayer.Concrete.EntityFrameworkCore.Repository;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation()
+    .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ICustomValidator>())
+    .AddJsonOptions(options => 
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
+builder.Services.AddAutoMapper(typeof(ICustomMapper));
 builder.Services.AddDbContext<HotelEcommerceContext>();
 // RoomType
 builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
@@ -24,6 +36,9 @@ builder.Services.AddScoped<IRoomServicesService, RoomServicesService>();
 //HotelServices
 builder.Services.AddScoped<IHotelServicesRepository, EfHotelServicesRepository>();
 builder.Services.AddScoped<IHotelServicesService, HotelServicesService>();
+//Rooms
+builder.Services.AddScoped<IRoomsRepository, EfRoomsRepository>();
+builder.Services.AddScoped<IRoomsService, RoomsService>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -42,7 +57,7 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
-      name: "Admin",
+      name: "admin",
       pattern: "{area:exists}/{controller=Rooms}/{action=Index}/{id?}"
     );
 });

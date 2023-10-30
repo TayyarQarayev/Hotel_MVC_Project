@@ -1,4 +1,5 @@
-﻿using BusinessLogicLayer.Abstrct;
+﻿using AutoMapper;
+using BusinessLogicLayer.Abstrct;
 using BusinessLogicLayer.Models.CustomersModels;
 using DataAccessLayer.Abstrct.CustomersInterfaces;
 using Entity.Concrete.Customers;
@@ -13,9 +14,11 @@ namespace BusinessLogicLayer.Concrete;
 public class CustomersService : ICustomersService
 {
     private readonly ICustomersRepository _customersRepository;
-    public CustomersService(ICustomersRepository customersRepository)
+    private readonly IMapper _mapper;
+    public CustomersService(ICustomersRepository customersRepository, IMapper mapper)
     {
         _customersRepository = customersRepository;
+        _mapper = mapper;
     }
 
     public async Task<bool> AddCustomers(CustomersModel customersModel)
@@ -24,15 +27,7 @@ public class CustomersService : ICustomersService
         {
             return false;
         }
-        Customers customers = new()
-        {
-            ID = customersModel.ID ?? 0,
-            FirstName = customersModel.FirstName,
-            LastName = customersModel.LastName,
-            ContactNO = customersModel.ContactNO,
-            DateOfBirth = customersModel.DateOfBirth
-        };
-
+        var customers = _mapper.Map<Customers>(customersModel);
         var adedData = await _customersRepository.AddAsync(customers);
         await _customersRepository.SaveChanges();
         return true;
@@ -40,19 +35,22 @@ public class CustomersService : ICustomersService
 
     public async Task<IEnumerable<CustomersModel>> GetAll()
     {
-        List<CustomersModel> customersModels = new List<CustomersModel>();
-        foreach (var customers in await _customersRepository.GetAll())
-        {
-            CustomersModel customersModel = new()
-            {
-                ID = customers.ID,
-                FirstName = customers.FirstName,
-                LastName = customers.LastName,
-                ContactNO = customers.ContactNO,
-                DateOfBirth = customers.DateOfBirth
-            };
-            customersModels.Add(customersModel);
-        }
+        var customersModels = _mapper.Map<IEnumerable<CustomersModel>>(await _customersRepository.GetAll());
         return customersModels;
+    }
+
+    public async Task<CustomersModel> GetById(int id)
+    {
+        var customersModel = _mapper.Map<CustomersModel>(await _customersRepository.GetById(id));
+        return customersModel;
+    }
+
+    public async Task<bool> Remove(int id)
+    {
+        var deletedCustomers = await _customersRepository.GetById(id);
+        if (deletedCustomers is null) { return false; }
+        _customersRepository.Remove(deletedCustomers);
+        await _customersRepository.SaveChanges();
+        return true;
     }
 }

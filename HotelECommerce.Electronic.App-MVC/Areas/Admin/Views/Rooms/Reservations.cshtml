@@ -1,18 +1,18 @@
-﻿@model IEnumerable<ReservationsModel>
+﻿@model ReservationsViewModel
 @{
     ViewData["Title"] = "Reservations";
 }
 
-<div class="card">
+<div class="card shadow text-white" style="background-color: #333 !important;">
     <div class="row card-header">
         <h5>Reservation</h5>
     </div>
 
     <div class="row">
-        <div class="col-3 p-4">
+        <div class="p-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationsAddedModel">Add new Reservations</button>
         </div>
-        <div class="modal fade" id="reservationsAddedModel" tabindex="-1" aria-labelledby="reservationsAddedModel" aria-hidden="true">
+        <div class="modal fade text-black" id="reservationsAddedModel" tabindex="-1" aria-labelledby="reservationsAddedModel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -22,15 +22,22 @@
                     <form asp-action="AddReservations" method="post">
                         <div class="modal-body">
 
-                            <div class="mb-3">
-                                <label for="" class="form-label">Reservation</label>
-                                <input type="text" class="form-control" id="" name="" placeholder="">
+                            <div class="mb-1 mt-3">
+                                <label for="ReservationNumber" class="form-label">Reservation Number</label>
+                                <input type="text" value="" class="form-control" asp-for="ReservationNumber" id="ReservationNumber" name="ReservationNumber" placeholder="1,2,3,4,5,6">
+                                <span asp-validation-for="@Model.ReservationNumber" class="text-danger"></span>
+                                <label for="ReservationDate" class="form-label">Reservation Date</label>
+                                <input type="date" value="DD:MM:YYYY" class="form-control" asp-for="ReservationDate" id="ReservationDate" name="ReservationDate" placeholder="DD.MM.YY">
+                                <span asp-validation-for="@Model.ReservationDate" class="text-danger"></span>
+                                <label for="CustomerID" class="form-label">CustomerID</label>
+                                <input type="text" value="" class="form-control" asp-for="CustomerID" id="CustomerID" name="CustomerID" placeholder="1,2,3,4,5,6">
+                                <span asp-validation-for="@Model.CustomerID" class="text-danger"></span>
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -40,30 +47,41 @@
 
     <div class="card-body px-4">
         <div class="col-8">
-            <table class="table">
+            <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Reservation Number</th>
                         <th scope="col">Reservation Date</th>
                         <th scope="col">CustomersID</th>
+                        <th colspan="2" class="text-center">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var Reservations in Model)
+                    @foreach (var reservations in Model.ReservationsModels)
                     {
                         <tr>
                             <td>
-                                @Reservations.ID
+                                @reservations.ID
                             </td>
                             <td>
-                                @Reservations.ReservationNumber
+                                @reservations.ReservationNumber
                             </td>
                             <td>
-                                @Reservations.ReservationDate
+                                @reservations.ReservationDate
                             </td>
                             <td>
-                                @Reservations.CustomerID
+                                @reservations.CustomerID
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-danger" onclick="deleteReservationsById(@reservations.ID)">
+                                    Delete
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-success">
+                                    Edit
+                                </a>
                             </td>
                         </tr>
                     }
@@ -72,5 +90,27 @@
         </div>
     </div>
 </div>
-
+@section scripts{
+    <script>
+        function deleteReservationsById(ReservationsID) {
+            console.log(ReservationsID);
+            let data = { id: ReservationsID }
+            $.ajax({
+                type: "GET",
+                url: "/Admin/Rooms/DeleteReservations",
+                data: data,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    console.log(result);
+                    alert(result.message);
+                    window.location.reload();
+                },
+                error: function (textStatus) {
+                    console.error(textStatus);
+                }
+            })
+        }
+    </script>
+}
 

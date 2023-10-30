@@ -1,18 +1,18 @@
-﻿@model IEnumerable<RoomServicesModel>
+﻿@model RoomServicesViewModel
 @{
     ViewData["Title"] = "RoomServices";
 }
 
-<div class="card">
+<div class="card shadow text-white" style="background-color: #333 !important;">
     <div class="row card-header">
         <h5>Room Services</h5>
     </div>
 
     <div class="row">
-        <div class="col-3 p-4">
+        <div class="p-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#roomServicesAddedModel">Add new Room Service</button>
         </div>
-        <div class="modal fade" id="roomServicesAddedModel" tabindex="-1" aria-labelledby="roomServicesAddedModel" aria-hidden="true">
+        <div class="modal fade text-black" id="roomServicesAddedModel" tabindex="-1" aria-labelledby="roomServicesAddedModel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -22,15 +22,16 @@
                     <form asp-action="AddRoomServices" method="post">
                         <div class="modal-body">
 
-                            <div class="mb-3">
+                            <div class="mb-3 mt-3">
                                 <label for="RoomServicesName" class="form-label">Room Service Name</label>
-                                <input type="text" class="form-control" id="RoomServicesName" name="RoomServicesName" placeholder="">
+                                <input type="text" class="form-control" asp-for="RoomServicesName" id="RoomServicesName" name="RoomServicesName" placeholder="">
+                                <span asp-validation-for="@Model.RoomServicesName" class="text-danger"></span>
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -40,22 +41,33 @@
 
     <div class="card-body px-4">
         <div class="col-8">
-            <table class="table">
+            <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Room Service Name</th>
+                        <th colspan="2" class="text-center">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var RoomServices in Model)
+                    @foreach (var roomServices in Model.RoomServicesModels)
                     {
                         <tr>
                             <td>
-                                @RoomServices.ID
+                                @roomServices.ID
                             </td>
                             <td>
-                                @RoomServices.RoomServicesName
+                                @roomServices.RoomServicesName
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-danger" onclick="deleteRoomServicesById(@roomServices.ID)">
+                                    Delete
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-success">
+                                    Edit
+                                </a>
                             </td>
                         </tr>
                     }
@@ -64,4 +76,27 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        function deleteRoomServicesById(RoomServicesID) {
+            console.log(RoomServicesID);
+            let data = { id: RoomServicesID }
+            $.ajax({
+                type: "GET",
+                url: "/Admin/Rooms/DeleteRoomServices",
+                data: data,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    console.log(result);
+                    alert(result.message);
+                    window.location.reload();
+                },
+                error: function (textStatus) {
+                    console.error(textStatus);
+                }
+            })
+        }
+    </script>
+}
 

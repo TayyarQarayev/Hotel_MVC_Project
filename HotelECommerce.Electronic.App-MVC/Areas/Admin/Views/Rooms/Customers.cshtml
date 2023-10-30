@@ -1,18 +1,18 @@
-﻿@model IEnumerable<CustomersModel>
+﻿@model CustomersViewModel
 @{
     ViewData["Title"] = "Customers";
 }
 
-<div class="card">
+<div class="card shadow text-white" style="background-color: #333 !important;">
     <div class="row card-header">
         <h5>Customers</h5>
     </div>
 
     <div class="row">
-        <div class="col-3 p-4">
+        <div class="p-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customersAddedModel">Add new Customers</button>
         </div>
-        <div class="modal fade" id="customersAddedModel" tabindex="-1" aria-labelledby="customersAddedModel" aria-hidden="true">
+        <div class="modal fade text-black" id="customersAddedModel" tabindex="-1" aria-labelledby="customersAddedModel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -23,14 +23,24 @@
                         <div class="modal-body">
 
                             <div class="mb-3">
-                                <label for="" class="form-label">Customers</label>
-                                <input type="text" class="form-control" id="" name="" placeholder="">
+                                <label for="FirstName" class="form-label">FirstName</label>
+                                <input type="text" class="form-control" asp-for="FirstName" id="FirstName" name="FirstName" placeholder="">
+                                <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                                <label for="LastName" class="form-label">LastName</label>
+                                <input type="text" class="form-control" asp-for="LastName" id="LastName" name="LastName" placeholder="">
+                                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                                <label for="DateOfBirth" class="form-label">DateOfBirth</label>
+                                <input type="date" class="form-control" asp-for="DateOfBirth" id="DateOfBirth" name="DateOfBirth" placeholder="19.10.2023">
+                                <span asp-validation-for="@Model.DateOfBirth" class="text-danger"></span>
+                                <label for="ContactNO" class="form-label">ContactNO</label>
+                                <input type="text" class="form-control" asp-for="ContactNO" id="ContactNO" name="ContactNO" placeholder="050 773 44 ...">
+                                <span asp-validation-for="@Model.ContactNO" class="text-danger"></span>
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -40,7 +50,7 @@
 
     <div class="card-body px-4">
         <div class="col-8">
-            <table class="table">
+            <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -48,26 +58,37 @@
                         <th scope="col">LastName</th>
                         <th scope="col">ContactNO</th>
                         <th scope="col">Date Of Birth</th>
+                        <th colspan="2" class="text-center">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var Customers in Model)
+                    @foreach (var customers in Model.CustomersModels)
                     {
                         <tr>
                             <td>
-                                @Customers.ID
+                                @customers.ID
                             </td>
                             <td>
-                                @Customers.FirstName
+                                @customers.FirstName
                             </td>
                             <td>
-                                @Customers.LastName
+                                @customers.LastName
                             </td>
                             <td>
-                                @Customers.ContactNO
+                                @customers.ContactNO
                             </td>
                             <td>
-                                @Customers.DateOfBirth
+                                @customers.DateOfBirth
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-danger" onclick="deleteCustomersById(@customers.ID)">
+                                    Delete
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-success">
+                                    Edit
+                                </a>
                             </td>
                         </tr>
                     }
@@ -76,3 +97,32 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        function deleteCustomersById(CustomersID) {
+            console.log(CustomersID);
+            let data = { id: CustomersID }
+            $.ajax({
+                type: "GET",
+                url: "/Admin/Rooms/DeleteCustomers",
+                data: data,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    console.log(result);
+                    alert(result.message);
+                    window.location.reload();
+                },
+                error: function (textStatus) {
+                    console.error(textStatus);
+                }
+            })
+        };
+        const nameFormatter = e => e.target.value = e.target.value.replace(/\b\w/g, match => match.toUpperCase());
+        const numberFormatter = e => e.target.value = e.target.value.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4');
+
+        document.getElementById('ContactNO').addEventListener('input', numberFormatter);
+        document.getElementById('FirstName').addEventListener('input', nameFormatter);
+        document.getElementById('LastName').addEventListener('input', nameFormatter);
+    </script>
+}

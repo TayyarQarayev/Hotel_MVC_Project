@@ -41,6 +41,11 @@ public class EfGenericRepository<TEntity> : IGenericRepository<TEntity> where TE
         return await Table.ToListAsync();
     }
 
+    public async Task<TEntity> GetById(int ID)
+    {
+        return await Table.FirstOrDefaultAsync(x => x.ID==ID);
+    }
+
     public IQueryable<TEntity> GetWhere(Expression<Func<TEntity, bool>> expression)
     {
         return Table.Where(expression);
@@ -60,7 +65,7 @@ public class EfGenericRepository<TEntity> : IGenericRepository<TEntity> where TE
 
     public async Task SaveChanges()
     {
-       await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 
     public bool Update(TEntity entity)

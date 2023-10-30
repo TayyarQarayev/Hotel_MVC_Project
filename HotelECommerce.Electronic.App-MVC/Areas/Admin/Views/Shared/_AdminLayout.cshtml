@@ -4,71 +4,76 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/pulse.min.css">
 </head>
-<body >
+<body style="display : flex; background-color: #fff !important;">
 
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+    <div class="col-4 col-md-2">
+        <div class="row flex-nowrap w-100 h-100">
+            <div class="px-sm-2 px-0" style="background-color: #444 ;">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Menu</span>
+                        <span class="h2 d-none d-sm-inline fw-bold">Menu</span>
                     </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <ul class="nav nav-pills flex-column ms-2 mb-sm-auto mb-0 align-items-center align-items-sm-start" style="font-weight:600" id="menu">
                         <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
+                            <a href="#" class="nav-link align-middle text-white px-0">
                                <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                               <span class="ms-1 d-none d-sm-inline">--Rooms</span>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="text-white nav-link px-0 align-middle">
+                               <span class="ms-1 d-none d-sm-inline">Rooms</span>
                             </a>
-                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <ul class="collapse nav flex-column ms-1" style="font-weight:400" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Rooms Table</span></a>
+                                    <a asp-controller="Rooms" asp-action="AddRooms" class="nav-link px-0 text-white">
+                                        <span style="display: inline;">&#8226;</span>
+                                        <span class="d-done d-sm-inline m-2">Add Room</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline text-white">Rooms Add</span></a>
+                                    <a class="nav-link px-0 text-white">
+                                        <span style="display: inline;">&#8226;</span>
+                                        <span class="d-done d-sm-inline m-2">List Room</span></a>
                                 </li>
                             </ul>
-                        </li
+                        </li>
                         <li>
-                            <a asp-controller="Rooms" asp-action="Reservations" class="nav-link px-0 align-middle ">
-                                <span class="ms-1 d-none d-sm-inline">--Reservations</span>
+                            <a asp-controller="Rooms" asp-action="Reservations" class="text-white nav-link px-0 align-middle ">
+                                <span class="ms-1 d-none d-sm-inline">Reservations</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 
                             </ul>
                         </li>
                         <li>
-                            <a asp-controller="Rooms" asp-action="Customers" class="nav-link px-0 align-middle">
-                                <span class="ms-1 d-none d-sm-inline">--Customers</span>
+                            <a asp-controller="Rooms" asp-action="Customers" class="text-white nav-link px-0 align-middle">
+                                <span class="ms-1 d-none d-sm-inline">Customers</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 
                             </ul>
                         </li>
                         <li>
-                            <a asp-controller="Rooms" asp-action="RoomType" class="nav-link px-0 align-middle">
-                                <span class="ms-1 d-none d-sm-inline">--RoomType</span>
+                            <a asp-controller="Rooms" asp-action="RoomType" class="text-white nav-link px-0 align-middle">
+                                <span class="ms-1 d-none d-sm-inline">RoomType</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
                                 
                             </ul>
                         </li>
                         <li>
-                            <a asp-controller="Rooms" asp-action="RoomServices" class="nav-link px-0 align-middle">
-                                <span class="ms-1 d-none d-sm-inline">--RoomServices</span>
+                            <a asp-controller="Rooms" asp-action="RoomServices" class="text-white nav-link px-0 align-middle">
+                                <span class="ms-1 d-none d-sm-inline">RoomServices</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu6" data-bs-parent="#menu">
                                
                             </ul>
                         </li>
                         <li>
-                            <a asp-controller="Rooms" asp-action="HotelServices" class="nav-link px-0 align-middle">
-                                <span class="ms-1 d-none d-sm-inline">--HotelServices</span>
+                            <a asp-controller="Rooms" asp-action="HotelServices" class="text-white nav-link px-0 align-middle">
+                                <span class="ms-1 d-none d-sm-inline">HotelServices</span>
                             </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu7" data-bs-parent="#menu">
 
@@ -95,11 +100,14 @@
             </div>
         </div>
     </div>
-        <div>
+        <div class="col-8 col-md-10 p-3">
             @RenderBody()
         </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSectionAsync("scripts",false);
 </body>
 </html>

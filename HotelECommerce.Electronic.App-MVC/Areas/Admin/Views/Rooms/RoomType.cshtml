@@ -1,18 +1,18 @@
-﻿@model IEnumerable<RoomTypeModel>
+﻿@model RoomTypeViewModel
 @{
     ViewData["Title"] = "RoomType";
 }
 
-<div class="card">
+<div class="card shadow text-white" style="background-color: #333 !important">
     <div class="row card-header">
         <h5>Room Type</h5>
     </div>
 
     <div class="row">
-        <div class="col-3 p-4">
+        <div class="p-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#roomTypeAddedModel">Add new Room Type</button>
         </div>
-        <div class="modal fade" id="roomTypeAddedModel" tabindex="-1" aria-labelledby="roomTypeAddedModel" aria-hidden="true">
+        <div class="modal fade text-black" id="roomTypeAddedModel" tabindex="-1" aria-labelledby="roomTypeAddedModel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -22,15 +22,16 @@
                     <form asp-action="AddRoomType" method="post">
                          <div class="modal-body">
                          
-                              <div class="mb-3">
+                              <div class="mb-3 mt-3">
                                    <label for="TypeName" class="form-label">Room Type Name</label>
-                                   <input type="text" class="form-control" id="TypeName" name="TypeName" placeholder="Standart, Deluxe etc.">
+                                   <input type="text" class="form-control" asp-for="TypeName" id="TypeName" name="TypeName" placeholder="Standart, Deluxe etc.">
+                                   <span asp-validation-for="@Model.TypeName" class="text-danger"></span>
                               </div>
                         
                          </div>
                          <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
+                              <button type="submit" class="btn btn-primary">Save changes</button>
                          </div>
                     </form>
                 </div>
@@ -39,23 +40,35 @@
     </div>
 
     <div class="card-body px-4">
-        <div class="col-8">
-            <table class="table">
+        <div class="">
+            <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Type Name</th>
+                        <th colspan="2" class="text-center">Operations</th>
+                         
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var RoomType in Model)
+                    @foreach (var roomType in Model.RoomTypeModels)
                     {
                         <tr>
                             <td>
-                                @RoomType.ID
+                                @roomType.ID
                             </td>
                             <td>
-                                @RoomType.TypeName
+                                @roomType.TypeName
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-danger" onclick="deleteRoomTypeById(@roomType.ID)">
+                                    Delete
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-success">
+                                    Edit
+                                </a>
                             </td>
                         </tr>
                     }
@@ -64,3 +77,26 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        function deleteRoomTypeById(RoomTypeID) {
+            console.log(RoomTypeID);
+        let data = {id:RoomTypeID}
+        $.ajax({
+            type:"GET",
+            url: "/Admin/Rooms/DeleteRoomType",
+            data: data,
+            dataType:"json",
+            contentType:"application/json; charset=utf-8",
+            success: function(result){
+                console.log(result);
+                alert(result.message);
+                window.location.reload();
+            },
+            error:function(textStatus){
+                console.error(textStatus);
+            }
+        })
+       }
+    </script>
+}

@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\HotelECommerce.Electronic.App-MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/AddRooms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcQWRkUm9vbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Tayyar Qarayev/Desktop/Hotel_MVC/HotelECommerce.Electronic.App-MVC/Areas/Admin/Views/Rooms/Customers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbXNcQ3VzdG9tZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

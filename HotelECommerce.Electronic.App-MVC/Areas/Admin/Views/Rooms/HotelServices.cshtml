@@ -1,18 +1,18 @@
-﻿@model IEnumerable<HotelServicesModel>
+﻿@model HotelServicesViewModel
 @{
     ViewData["Title"] = "HotelServices";
 }
 
-<div class="card">
+<div class="card shadow text-white" style="background-color: #333 !important;">
     <div class="row card-header">
         <h5>Hotel Services</h5>
     </div>
 
     <div class="row">
-        <div class="col-3 p-4">
+        <div class="p-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#hotelServicesAddedModel">Add new Hotel Service</button>
         </div>
-        <div class="modal fade" id="hotelServicesAddedModel" tabindex="-1" aria-labelledby="hotelServicesAddedModel" aria-hidden="true">
+        <div class="modal fade text-black" id="hotelServicesAddedModel" tabindex="-1" aria-labelledby="hotelServicesAddedModel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -24,13 +24,14 @@
 
                             <div class="mb-3">
                                 <label for="HotelServicesName" class="form-label">Hotel Service Name</label>
-                                <input type="text" class="form-control" id="HotelServicesName" name="HotelServicesName" placeholder="">
+                                <input type="text" class="form-control" asp-for="HotelServicesName" id="HotelServicesName" name="HotelServicesName" placeholder="">
+                                <span asp-validation-for="@Model.HotelServicesName" class="text-danger"></span>
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -40,22 +41,33 @@
 
     <div class="card-body px-4">
         <div class="col-8">
-            <table class="table">
+            <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Hotel Service Name</th>
+                        <th colspan="2" class="text-center">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var HotelServices in Model)
+                    @foreach (var hotelServices in Model.HotelServicesModels)
                     {
                         <tr>
                             <td>
-                                @HotelServices.ID
+                                @hotelServices.ID
                             </td>
                             <td>
-                                @HotelServices.HotelServicesName
+                                @hotelServices.HotelServicesName
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-danger" onclick="deleteHotelServicesById(@hotelServices.ID)">
+                                    Delete
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-success">
+                                    Edit
+                                </a>
                             </td>
                         </tr>
                     }
@@ -64,4 +76,26 @@
         </div>
     </div>
 </div>
-
+@section scripts{
+    <script>
+        function deleteHotelServicesById(HotelServicesID) {
+            console.log(HotelServicesID);
+            let data = { id: HotelServicesID }
+            $.ajax({
+                type: "GET",
+                url: "/Admin/Rooms/DeleteHotelServices",
+                data: data,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    console.log(result);
+                    alert(result.message);
+                    window.location.reload();
+                },
+                error: function (textStatus) {
+                    console.error(textStatus);
+                }
+            })
+        }
+    </script>
+}

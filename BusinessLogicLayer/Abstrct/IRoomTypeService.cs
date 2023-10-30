@@ -11,4 +11,6 @@ public interface IRoomTypeService
 {
     Task<IEnumerable<RoomTypeModel>> GetAll();
     Task<bool> AddRoomType(RoomTypeModel roomTypeModel);
+    Task<RoomTypeModel> GetById(int id);
+    Task<bool> Remove(int id);
 }

@@ -17,7 +17,7 @@ public class Rooms : IBaseTable
     public int RoomNumber { get; set; }
     public int RoomPrice { get; set; }
     public int GuestsCount { get; set; }
-    public int ChilderenCount { get; set; }
+    public int ChilderenCount { get; set; } 
     public decimal RoomSize { get; set; }
     public int RoomTypeID { get; set; }
     public int ReservationID { get; set; }

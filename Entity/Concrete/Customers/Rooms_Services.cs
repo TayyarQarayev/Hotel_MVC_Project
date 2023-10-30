@@ -13,4 +13,5 @@ public class Rooms_Services : IBaseTable
     public int RoomID { get; set; }
     public Rooms Rooms { get; set; }
     public Services Services { get; set; }
+    public int ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }

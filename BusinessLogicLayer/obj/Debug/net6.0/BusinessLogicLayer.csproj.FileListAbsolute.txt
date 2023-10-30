@@ -1,3 +1,8 @@
+C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.csproj.AssemblyReference.cache
+C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.AssemblyInfo.cs
+C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\BusinessLogicLayer.deps.json
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\BusinessLogicLayer.dll
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\BusinessLogicLayer.pdb
@@ -5,11 +10,6 @@ C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\Da
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\Entity.dll
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\DataAccessLayer.pdb
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\bin\Debug\net6.0\Entity.pdb
-C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.csproj.AssemblyReference.cache
-C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.AssemblyInfoInputs.cache
-C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.AssemblyInfo.cs
-C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\BusinessLogicLayer.dll
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\BusinessLogicLayer\obj\Debug\net6.0\refint\BusinessLogicLayer.dll
