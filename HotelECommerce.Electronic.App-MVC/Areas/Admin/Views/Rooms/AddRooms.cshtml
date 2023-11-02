@@ -65,7 +65,7 @@
                                 <div class="col-12 mb-3" style="border:3px dashed #000; padding:10px 6px; border-radius:6px;">
                                     <form action="/upload" method="post" enctype="multipart/form-data">
                                         <label class="h5" for="fileInput">Select image:</label>
-                                        <input class="btn btn-info" type="file" id="fileInput" name="fileInput">
+                                        <input class="btn btn-info" type="file" id="image" name="image">
                                     </form>
                                 </div>
                                 <div class="">
@@ -107,59 +107,68 @@
             }).then(function () {
                 return fillSelectBox($("#reservationsSelect"), "ReservationNumber", "/Admin/Rooms/GetReservationsList");
             }).catch(function (error) {
-                console.error("Bir hata oluştu: ", error);
+                console.error("Hata: ", error);
             });
         });
 
         function addRooms() {
-
-            // deyme
-            //let files = $("#image").get(0).files;
-            //let formData = new FormData();
-            //for(i=0; i<files.length; i++;){
-            //    formData.append("image",files[i]);
-            //}
-            //
-            // deyme
-            //$.ajax({
-            //    async:true,
-            //    type: "POST",
-            //    url: "/Admin/Rooms/UploadImage",
-            //    data: formData,
-            //    dataType:"JSON",
-            //    processData:false,
-            //    contentType:false,
-            //    success: function (imageResponse) {
-            //        console.log(imageResponse);
-            //    }
-            //}),
-            //
-
-            let roomsData = {
-                    RoomNumber: parseInt($("#RoomNumber").val()),
-                    RoomPrice: parseInt($("#RoomPrice").val()),
-                    GuestsCount: parseInt($("#GuestsCount").val()),
-                    ChilderenCount: parseInt($("#ChilderenCount").val()),
-                    RoomSize: parseInt($("#RoomSize").val()),
-                    RoomTypeID: parseInt($("#roomTypeSelect").val()),
-                    RoomType: $("#roomTypeSelect option:selected").text(),
-                    ReservationID: parseInt($("#reservationsSelect").val()),
-                    Reservations: $("#reservationsSelect option:selected").text(),
-                    Rooms_Services: [parseInt($("#roomServicesSelect").val()), parseInt($("#hotelServicesSelect").val())]
+            let files = $("#image").get(0).files;
+            let formData = new FormData();
+            for (let i = 0; i < files.length; i++) {
+                formData.append("image", files[i]);
             }
-            console.log(roomsData);
-            console.log(JSON.stringify(roomsData),"Json");
+
+            let roomsModel = {z
+                RoomNumber: parseInt($("#RoomNumber").val()),
+                RoomPrice: parseInt($("#RoomPrice").val()),
+                GuestsCount: parseInt($("#GuestsCount").val()),
+                ChilderenCount: parseInt($("#ChilderenCount").val()),
+                RoomSize: parseInt($("#RoomSize").val()),
+                RoomTypeID: parseInt($("#roomTypeSelect").val()),
+                RoomType: $("#roomTypeSelect option:selected").text(),
+                ReservationID: parseInt($("#reservationsSelect").val()),
+                Reservations: $("#reservationsSelect option:selected").text(),
+                Rooms_Services: [
+                    parseInt($("#roomServicesSelect").val()),
+                    parseInt($("#hotelServicesSelect").val())
+                ],
+                ImagePath: ""
+            };
+
+            console.log(roomsModel);
+            console.log(JSON.stringify(roomsModel), "Json");
 
             $.ajax({
+                async: true,
                 type: "POST",
-                url: "/Admin/Rooms/addRooms",
-                contentType:'application/json',
-                data: JSON.stringify(roomsData),
-                success: function(response){
-                    console.log(response.message);
+                url: "/Admin/Rooms/UploadImage",
+                data: formData,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+                success: function (imageResponse) {
+                    console.log(imageResponse);
+
+                    roomsModel.ImagePath = imageResponse.imageUrl;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Admin/Rooms/AddRooms",
+                        contentType: 'application/json',
+                        data: JSON.stringify(roomsModel),
+                        success: function (response) {
+                            console.log(response.message);
+                        },
+                        error: function (err) {
+                            console.error("aded rooms error ", err);
+                        }
+                    });
+                },
+                error: function (err) {
+                    console.error("aded image error: ", err);
                 }
-            })
-        };
+            });
+        }
 
         const numberFormatter = e => e.target.value = e.target.value.replace(/\D/g, '');
         document.getElementById('RoomNumber').addEventListener('input', numberFormatter);

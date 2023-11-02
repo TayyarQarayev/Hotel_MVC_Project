@@ -549,3 +549,4 @@ C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\HotelECommerce.Electronic.App-MVC\obj\
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\HotelECommerce.Electronic.App-MVC\obj\Debug\net6.0\HotelECommerce.Electronic.App-MVC.pdb
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\HotelECommerce.Electronic.App-MVC\obj\Debug\net6.0\HotelECommerce.Electronic.App-MVC.genruntimeconfig.cache
 C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\HotelECommerce.Electronic.App-MVC\obj\Debug\net6.0\ref\HotelECommerce.Electronic.App-MVC.dll
+C:\Users\Tayyar Qarayev\Desktop\Hotel_MVC\HotelECommerce.Electronic.App-MVC\obj\Debug\net6.0\HotelECommerce.Electronic.App-MVC.MvcApplicationPartsAssemblyInfo.cs

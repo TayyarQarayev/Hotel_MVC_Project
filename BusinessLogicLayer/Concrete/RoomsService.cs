@@ -24,7 +24,7 @@ public class RoomsService : IRoomsService
     public async Task<bool> Add(RoomsModel roomsModel)
     {
         var rooms = _mapper.Map<Rooms>(roomsModel);
-        var adedData = await _roomsRepository.AddAsync(rooms);
+        await _roomsRepository.AddAsync(rooms);
         await _roomsRepository.SaveChanges();
         return true;
     }

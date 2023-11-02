@@ -7,6 +7,7 @@ using BusinessLogicLayer.Models.RoomsModels;
 using BusinessLogicLayer.Models.RoomTypeModels;
 using Entity.Concrete.Customers;
 using HotelECommerce.Electronic.App_MVC.Areas.Admin.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -21,12 +22,14 @@ public class RoomsController : Controller
     private readonly IRoomServicesService _RoomServicesServices;
     private readonly IHotelServicesService _HotelServicesServices;
     private readonly IRoomsService _RoomsServices;
+    private readonly IWebHostEnvironment _WebHostEnvironment;
     public RoomsController(IRoomTypeService roomTypeService,
                            IReservationService reservationService,
                            ICustomersService customersService,
                            IRoomServicesService roomServicesServices,
                            IHotelServicesService hotelServicesServices,
-                           IRoomsService roomsServices)
+                           IRoomsService roomsServices,
+                           IWebHostEnvironment webHostEnvironment)
     {
         _RoomTypeService = roomTypeService;
         _ReservationsServices = reservationService;
@@ -34,19 +37,21 @@ public class RoomsController : Controller
         _RoomServicesServices = roomServicesServices;
         _HotelServicesServices = hotelServicesServices;
         _RoomsServices = roomsServices;
+        _WebHostEnvironment = webHostEnvironment;
     }
     public IActionResult Index()
     {
         return View();
     }
-    // Rooms views
+    
+    //Rooms views
     [HttpGet]
     public async Task<IActionResult> AddRooms()
     {
         return View();
     }
     [HttpPost]
-    public async Task<JsonResult> AddRooms([FromBody]RoomsModel roomsModel)
+    public async Task<JsonResult> AddRooms([FromBody] RoomsModel roomsModel)
     {
         await _RoomsServices.Add(roomsModel);
         return Json(new {message="new Room Aded!"});
@@ -77,7 +82,7 @@ public class RoomsController : Controller
         return Json(roomTypes);
     }
     // End
-    // Reservation views //
+    // Reservation views 
     public async Task<IActionResult> Reservations()
     {
         ReservationsViewModel reservationsViewModel = new();
@@ -175,7 +180,7 @@ public class RoomsController : Controller
         return Json(hotelServices);
     }
     // End
-    // HttpGet
+    // Deleted
     [HttpGet]
     public async Task<JsonResult> DeleteRoomType(int id)
     {
@@ -215,18 +220,35 @@ public class RoomsController : Controller
     // image
     [HttpPost]
     public async Task<JsonResult> UploadImage(IFormFile image)
-    {
+     {
         try
         {
-            if (image != null && image.Length>0)
+            if (image != null && image.Length > 0)
             {
-                return Json("");
-            }
-        }
-        catch (Exception)
-        {
+                string uploadsFolder = Path.Combine(_WebHostEnvironment.WebRootPath, "Uploads");
 
-            throw;
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                string uniqeFilesName = Guid.NewGuid().ToString() + "_" + image.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqeFilesName);
+
+                using (var stream = new FileStream(filePath,FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
+
+                string imagePath = Path.Combine("/Uploads",uniqeFilesName);
+                string imageUrl = Url.Content(imagePath);
+                return Json(new {imageUrl});
+            }
+            return Json(new { error = "image none" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { error = "error image", message = ex.Message });
         }
         return Json("");
     }

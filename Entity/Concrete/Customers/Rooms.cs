@@ -23,5 +23,6 @@ public class Rooms : IBaseTable
     public int ReservationID { get; set; }
     public RoomType RoomType { get; set; }
     public Reservations Reservations { get; set; }
+    public string ImagePath { get; set; }
     public ICollection<Rooms_Services> Rooms_Services { get; set; }
 }

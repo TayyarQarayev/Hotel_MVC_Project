@@ -3088,5 +3088,181 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\1d8b25cc-33c0-438d-9438-e9f792f6c6d6_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/1d8b25cc-33c0-438d-9438-e9f792f6c6d6_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\1d8b25cc-33c0-438d-9438-e9f792f6c6d6_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\24a5351c-8fa9-43ca-bfdd-9cbbd4482b4f_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/24a5351c-8fa9-43ca-bfdd-9cbbd4482b4f_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\24a5351c-8fa9-43ca-bfdd-9cbbd4482b4f_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\2a81567f-1bd6-4c94-8b22-f5ae282e1e2c_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/2a81567f-1bd6-4c94-8b22-f5ae282e1e2c_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\2a81567f-1bd6-4c94-8b22-f5ae282e1e2c_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\2aeef5b0-032c-4939-93b5-e0ad237d4d0c_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/2aeef5b0-032c-4939-93b5-e0ad237d4d0c_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\2aeef5b0-032c-4939-93b5-e0ad237d4d0c_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\413e0b3e-f3b5-474e-a2b1-16a51ed243ec_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/413e0b3e-f3b5-474e-a2b1-16a51ed243ec_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\413e0b3e-f3b5-474e-a2b1-16a51ed243ec_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\46ccce04-c2fe-415c-b85a-fcf50dc0059e_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/46ccce04-c2fe-415c-b85a-fcf50dc0059e_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\46ccce04-c2fe-415c-b85a-fcf50dc0059e_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\8c4dd992-7348-445a-93f2-d1b276cb4cca_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/8c4dd992-7348-445a-93f2-d1b276cb4cca_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\8c4dd992-7348-445a-93f2-d1b276cb4cca_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\9e66eba8-2932-4544-87fa-240ebcf5887a_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/9e66eba8-2932-4544-87fa-240ebcf5887a_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\9e66eba8-2932-4544-87fa-240ebcf5887a_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\bd836e1f-b4a2-4238-95b3-6e304f9a7634_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/bd836e1f-b4a2-4238-95b3-6e304f9a7634_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\bd836e1f-b4a2-4238-95b3-6e304f9a7634_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\db8d41b4-4700-4a4b-afb7-ddb1dcee3dff_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/db8d41b4-4700-4a4b-afb7-ddb1dcee3dff_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\db8d41b4-4700-4a4b-afb7-ddb1dcee3dff_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\fc7278bc-ed71-4c1b-91ca-f4eaa69f8187_Ekran görüntüsü 2023-07-01 193522.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>HotelECommerce.Electronic.App-MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HotelECommerce.Electronic.App-MVC</BasePath>
+      <RelativePath>Uploads/fc7278bc-ed71-4c1b-91ca-f4eaa69f8187_Ekran görüntüsü 2023-07-01 193522.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\fc7278bc-ed71-4c1b-91ca-f4eaa69f8187_Ekran görüntüsü 2023-07-01 193522.png))</OriginalItemSpec>
+    </StaticWebAsset>
   </ItemGroup>
 </Project>
